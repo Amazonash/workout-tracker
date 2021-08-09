@@ -10,12 +10,12 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect( "mongodb+srv://amazonash:_Xf3VUhUV_4d.a2@cluster0.nriyh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" || "mongodb://localhost/budget", {
+mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/budget", {
   useNewUrlParser: true,
   useFindAndModify: false
 });
 
-process.env.MONGODB_URI
+
 
 // routes
 app.use(require("./routes/api.js"));
